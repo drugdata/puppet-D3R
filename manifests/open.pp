@@ -1,4 +1,4 @@
-class profile::d3r_open
+class d3r::open
 {
   Package { ensure => 'installed' }
   $python_deps    = [ 'python-pip', 'python-psutil', 'python-virtualenv', 'python-tox', 'pylint', 'python-coverage' ]
