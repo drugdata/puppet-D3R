@@ -1,0 +1,20 @@
+{
+  "name": "puppet-d3r",
+  "version": "1.0",
+  "author": "Sy Bernot",
+  "summary": "d3r module",
+  "license": "Custom - UC Regents",
+  "source": "git://github.com/drugdata/puppet-d3r.git",
+  "description": "d3r module",
+  "issues_url": "https://github.com/drugdata/puppet-d3r/issues",
+  "project_page": "https://github.com/drugdata/puppet-d3r",
+  "tags": [ "d3r", "centos"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "7" ]
+    },
+  ],
+  "dependencies": [
+  ]
+}
