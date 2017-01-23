@@ -10,11 +10,10 @@
   "project_page": "https://github.com/drugdata/puppet-d3r",
   "tags": [ "d3r", "centos"],
   "operatingsystem_support": [
-    {
-      "operatingsystem": "CentOS",
-      "operatingsystemrelease": [ "7" ]
-    },
+    { "operatingsystem": "CentOS", "operatingsystemrelease": [ "7" ] }
   ],
+   
   "dependencies": [
-  ],
+  
+  ]
 }
