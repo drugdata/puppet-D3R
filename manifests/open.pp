@@ -2,7 +2,7 @@ class d3r::open
 {
   #epel repo
   exec { 'install_epel':
-    command => '/bin/yum install -y http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm',
+    command => '/bin/yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
     creates => '/etc/yum/yum.repos.d/epel.repo'
   }
 
