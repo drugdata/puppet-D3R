@@ -29,7 +29,7 @@ class d3r::open
     gpgcheck            => 1,
     gpgkey              => 'https://copr-be.cloud.fedoraproject.org/results/giallu/rdkit/pubkey.gpg',
     repo_gpgcheck       => 0,
-    skip_if_unavailable => True,
+    skip_if_unavailable => 'True'
   }
 
   exec { 'install_conda':
@@ -49,7 +49,7 @@ class d3r::open
   package { $pip_packages:
     ensure   => 'installed',
     provider => 'pip',
-    require  => Package ['python-pip'],
+    require  => Package['python-pip'],
   }
 
   #blast
