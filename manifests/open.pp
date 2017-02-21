@@ -57,6 +57,14 @@ class d3r::open
     provider => 'pip',
     require  => Package['python-pip'],
   }
+  
+  package { 'OpenEye-toolkits':
+    ensure   => 'installed',
+    provider => 'pip',
+    source   => 'https://pypi.anaconda.org/OpenEye/simple',
+    require  => Package['python-pip'],
+  }
+
 
   #blast
   exec { 'install_blast':
