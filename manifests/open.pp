@@ -3,7 +3,7 @@ class d3r::open
   #epel repo
   exec { 'install_epel':
     command => '/bin/yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
-    creates => '/etc/yum/yum.repos.d/epel.repo'
+    creates => '/etc/yum.repos.d/epel.repo'
   }
 
   Package { ensure => 'installed' }
@@ -61,7 +61,7 @@ class d3r::open
   package { 'OpenEye-toolkits':
     ensure   => 'installed',
     provider => 'pip',
-    install_options => [ {'-i' => 'https://pypi.anaconda.org/OpenEye/simple'} ],
+    install_options => [ '-i','https://pypi.anaconda.org/OpenEye/simple' ],
     require  => Package['python-pip'],
   }
 
