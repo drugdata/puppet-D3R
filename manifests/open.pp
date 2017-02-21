@@ -61,7 +61,7 @@ class d3r::open
   package { 'OpenEye-toolkits':
     ensure   => 'installed',
     provider => 'pip',
-    source   => 'https://pypi.anaconda.org/OpenEye/simple',
+    install_options => [ '-i' => 'https://pypi.anaconda.org/OpenEye/simple' ],
     require  => Package['python-pip'],
   }
 
