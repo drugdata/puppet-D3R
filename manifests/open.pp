@@ -20,7 +20,7 @@ class d3r::open
   package { $pymol_deps: }
 
   exec { 'install_pymol':
-    command => '/bin/cd /tmp; /bin/wget https://heanet.dl.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2;
+    command => '/bin/cd /tmp; /bin/wget https://downloads.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2?r=&ts=1487802338&use_mirror=cytranet;
                 /bin/tar -xjvf  pymol-v1.8.4.0.tar.bz2;
                 cd pymol;
                 python2.7 setup.py build install --home=/opt/pymol --install-scripts=/opt/pymol --install-lib=/opt/pymol/modules;
@@ -92,7 +92,7 @@ class d3r::open
   exec { 'install_chimera':
     command => '/bin/chmod a+x /vagrant/chimera-1.10.2-linux_x86_64.bin;
                 /usr/bin/echo "/opt/chimera" | /vagrant/chimera-1.10.2-linux_x86_64.bin;
-                export PATH=/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
+                export PATH="/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
     onlyif => '/usr/bin/test -f /vagrant/chimera-1.10.2-linux_x86_64.bin',
     creates => '/opt/chimera/bin/chimera'
   }
