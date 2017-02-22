@@ -57,14 +57,12 @@ class d3r::open
     provider => 'pip',
     require  => Package['python-pip'],
   }
-  
-  package { 'OpenEye-toolkits':
-    ensure   => 'installed',
-    provider => 'pip',
-    install_options => [ '-i','https://pypi.anaconda.org/OpenEye/simple' ],
-    require  => Package['python-pip'],
-  }
 
+  # Openeye install that will work in puppet in versions older then 4.1
+  exec { 'install_openeye':
+    command => '/usr/bin/pip install -i https://pypi.anaconda.org/OpenEye/simple OpenEye-toolkits',
+    creates => '/usr/bin/openeye_tests.py'
+  }
 
   #blast
   exec { 'install_blast':
@@ -90,6 +88,14 @@ class d3r::open
     creates => '/usr/local/mgltools'
   }
 
-  #manual Install UCSF chimera
+  #manual Install UCSF chimera if it resides in /vagrant directory
+  exec { 'install_chimera':
+    command => '/bin/chmod a+x /vagrant/chimera-1.10.2-linux_x86_64.bin;
+                /usr/bin/echo "/opt/chimera" | /vagrant/chimera-1.10.2-linux_x86_64.bin;
+                export PATH=/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
+    onlyif => '/usr/bin/test -f /vagrant/chimera-1.10.2-linux_x86_64.bin',
+    creates => '/opt/chimera/bin/chimera'
+  }
+
   #manual INSTALL Schrodinger_Suites_2016-2_Linux-x86_64
 }
