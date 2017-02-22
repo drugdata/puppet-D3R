@@ -91,9 +91,9 @@ class d3r::open
   #manual Install UCSF chimera if it resides in /vagrant directory
   exec { 'install_chimera':
     command => '/bin/chmod a+x /vagrant/chimera-1.10.2-linux_x86_64.bin;
-                echo "/opt/chimera" | /vagrant/chimera-1.10.2-linux_x86_64.bin;
+                /usr/bin/echo "/opt/chimera" | /vagrant/chimera-1.10.2-linux_x86_64.bin;
                 export PATH=/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
-    onlyif => 'test -f /vagrant/chimera-1.10.2-linux_x86_64.bin',
+    onlyif => '/usr/bin/test -f /vagrant/chimera-1.10.2-linux_x86_64.bin',
     creates => '/opt/chimera/bin/chimera'
   }
 
