@@ -20,7 +20,7 @@ class d3r::open
   package { $pymol_deps: }
 
   exec { 'install_pymol':
-    command => '/bin/cd /tmp; /bin/wget https://downloads.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2?r=&ts=1487802338&use_mirror=cytranet;
+    command => '/bin/cd /tmp; /bin/wget https://downloads.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2;
                 /bin/tar -xjvf  pymol-v1.8.4.0.tar.bz2;
                 cd pymol;
                 python2.7 setup.py build install --home=/opt/pymol --install-scripts=/opt/pymol --install-lib=/opt/pymol/modules;
