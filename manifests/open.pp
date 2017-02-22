@@ -57,14 +57,12 @@ class d3r::open
     provider => 'pip',
     require  => Package['python-pip'],
   }
-  
-  package { 'OpenEye-toolkits':
-    ensure   => 'installed',
-    provider => 'pip',
-    install_options => [ '-i','https://pypi.anaconda.org/OpenEye/simple' ],
-    require  => Package['python-pip'],
-  }
 
+  # Openeye install that will work in puppet in versions older then 4.1
+  exec { 'install_openeye':
+    command => 'pip install -i https://pypi.anaconda.org/OpenEye/simple OpenEye-toolkits',
+    creates => '/usr/bin/openeye_tests.py'
+  }
 
   #blast
   exec { 'install_blast':
