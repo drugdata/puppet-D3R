@@ -20,7 +20,7 @@ class d3r::open
   package { $pymol_deps: }
 
   exec { 'install_pymol':
-    command => '/bin/cd /tmp; /bin/wget https://heanet.dl.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2;
+    command => '/bin/cd /tmp; /bin/wget --no-check-certificate https://heanet.dl.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2;
                 /bin/tar -xjvf  pymol-v1.8.4.0.tar.bz2;
                 cd pymol;
                 python2.7 setup.py build install --home=/opt/pymol --install-scripts=/opt/pymol --install-lib=/opt/pymol/modules;
@@ -39,7 +39,7 @@ class d3r::open
   }
 
   exec { 'install_conda':
-    command => '/bin/cd ~; /bin/wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh;
+    command => '/bin/cd ~; /bin/wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh;
                 /bin/chmod a+x Miniconda2-latest-Linux-x86_64.sh;
                 /bin/sh Miniconda2-latest-Linux-x86_64.sh -b -p /opt/miniconda2;
                 export PATH="/opt/miniconda2/bin:$PATH";
