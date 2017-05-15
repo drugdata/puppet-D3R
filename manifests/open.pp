@@ -9,7 +9,7 @@ class d3r::open
   Package { ensure => 'installed' }
   $python_deps    = [ 'python2-pip', 'python-psutil', 'python-virtualenv', 'python-tox', 'pylint', 'python-coverage' ]
   $perl_deps      = [ 'perl-Archive-Tar', 'perl-List-MoreUtils' ]
-  $other_packages = [ 'libXft', 'openbabel', 'xorg-x11-xauth' ]
+  $other_packages = [ 'libXft', 'openbabel', 'xorg-x11-xauth', 'screen' ]
   $pymol_deps     = [ 'subversion', 'gcc', 'gcc-c++', 'kernel-devel', 'python-devel', 'tkinter', 'python-pmw', 'glew-devel', 'freeglut-devel', 'libpng-devel', 'freetype-devel', 'libxml2-devel']
   $mesa_packages  = [ 'mesa-libGL-devel','mesa-libEGL-devel','mesa-libGLES-devel' ]
   $pip_packages   = [ 'argparse','psutil','biopython','xlsxwriter','ftpretty','wheel','flake8','lockfile','easywebdav','d3r' ]
