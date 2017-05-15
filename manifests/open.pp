@@ -7,7 +7,7 @@ class d3r::open
   }
 
   Package { ensure => 'installed' }
-  $python_deps    = [ 'python-pip', 'python-psutil', 'python-virtualenv', 'python-tox', 'pylint', 'python-coverage' ]
+  $python_deps    = [ 'python2-pip', 'python-psutil', 'python-virtualenv', 'python-tox', 'pylint', 'python-coverage' ]
   $perl_deps      = [ 'perl-Archive-Tar', 'perl-List-MoreUtils' ]
   $other_packages = [ 'libXft', 'openbabel', 'xorg-x11-xauth' ]
   $pymol_deps     = [ 'subversion', 'gcc', 'gcc-c++', 'kernel-devel', 'python-devel', 'tkinter', 'python-pmw', 'glew-devel', 'freeglut-devel', 'libpng-devel', 'freetype-devel', 'libxml2-devel']
@@ -35,7 +35,7 @@ class d3r::open
     gpgcheck            => 1,
     gpgkey              => 'https://copr-be.cloud.fedoraproject.org/results/giallu/rdkit/pubkey.gpg',
     repo_gpgcheck       => 0,
-    skip_if_unavailable => 'True'
+    skip_if_unavailable => 'true'
   }
 
   exec { 'install_conda':
@@ -55,7 +55,7 @@ class d3r::open
   package { $pip_packages:
     ensure   => 'installed',
     provider => 'pip',
-    require  => Package['python-pip'],
+    require  => Package['python2-pip'],
   } ->
 
   # Openeye install that will work in puppet in versions older then 4.1
