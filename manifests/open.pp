@@ -20,7 +20,7 @@ class d3r::open
   package { $pymol_deps: }
 
   exec { 'install_pymol':
-    command => '/bin/cd /tmp; /bin/wget https://downloads.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2;
+    command => '/bin/cd /tmp; /bin/wget --no-check-certificate -O pymol-v1.8.4.0.tar.bz2 https://sourceforge.net/projects/pymol/files/pymol/1.8/pymol-v1.8.4.0.tar.bz2/download;
                 /bin/tar -xjvf  pymol-v1.8.4.0.tar.bz2;
                 cd pymol;
                 python2.7 setup.py build install --home=/opt/pymol --install-scripts=/opt/pymol --install-lib=/opt/pymol/modules;
@@ -56,7 +56,7 @@ class d3r::open
     ensure   => 'installed',
     provider => 'pip',
     require  => Package['python-pip'],
-  }
+  } ->
 
   # Openeye install that will work in puppet in versions older then 4.1
   exec { 'install_openeye':
