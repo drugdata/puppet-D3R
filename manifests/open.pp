@@ -9,7 +9,7 @@ class d3r::open
   Package { ensure => 'installed' }
   $python_deps    = [ 'python2-pip', 'python-psutil', 'python-virtualenv', 'python-tox', 'pylint', 'python-coverage' ]
   $perl_deps      = [ 'perl-Archive-Tar', 'perl-List-MoreUtils' ]
-  $other_packages = [ 'libXft', 'openbabel', 'xorg-x11-xauth' ]
+  $other_packages = [ 'libXft', 'openbabel', 'xorg-x11-xauth', 'screen', 'bzip2', 'which' ]
   $pymol_deps     = [ 'subversion', 'gcc', 'gcc-c++', 'kernel-devel', 'python-devel', 'tkinter', 'python-pmw', 'glew-devel', 'freeglut-devel', 'libpng-devel', 'freetype-devel', 'libxml2-devel']
   $mesa_packages  = [ 'mesa-libGL-devel','mesa-libEGL-devel','mesa-libGLES-devel' ]
   $pip_packages   = [ 'argparse','psutil','biopython','xlsxwriter','ftpretty','wheel','flake8','lockfile','easywebdav','d3r' ]
@@ -92,7 +92,7 @@ class d3r::open
   exec { 'install_chimera':
     command => '/bin/chmod a+x /vagrant/chimera-1.10.2-linux_x86_64.bin;
                 /usr/bin/echo "/opt/chimera" | /vagrant/chimera-1.10.2-linux_x86_64.bin;
-                export PATH=/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
+                export PATH="/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
     onlyif => '/usr/bin/test -f /vagrant/chimera-1.10.2-linux_x86_64.bin',
     creates => '/opt/chimera/bin/chimera'
   }
