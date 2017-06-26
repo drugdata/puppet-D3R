@@ -79,15 +79,6 @@ class d3r::open
     creates => '/opt/autodock_vina_1_1_2_linux_x86/bin/vina'
   }
 
-  exec { 'install_mgltools':
-    command => '/bin/wget http://mgltools.scripps.edu/downloads/downloads/tars/releases/REL1.5.6/mgltools_x86_64Linux2_1.5.6.tar.gz;
-                /bin/tar -zxf mgltools_x86_64Linux2_1.5.6.tar.gz;
-                cd mgltools_x86_64Linux2_1.5.6; 
-                /bin/sh install.sh -d /usr/local/mgltools;
-                export MGL_ROOT=/usr/local/mgltools >> ~/.bash_profile',
-    creates => '/usr/local/mgltools'
-  }
-
   #manual Install UCSF chimera if it resides in /vagrant directory
   exec { 'install_chimera':
     command => '/bin/chmod a+x /vagrant/chimera-1.10.2-linux_x86_64.bin;
