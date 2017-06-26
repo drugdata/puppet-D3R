@@ -2,18 +2,19 @@
 [rdkit]: http://www.rdkit.org/
 [blast]: https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download
 [vina]: http://vina.scripps.edu/
-[mgltools]: http://mgltools.scripps.edu/downloads
+[openeye]: https://www.eyesopen.com/
+[chimera]: https://www.cgl.ucsf.edu/chimera/
 # puppet-D3R
 Contains puppet configuration to provision a machine that can run D3R software.
 
 ### Software installed
 
-* [Pymol][pymol]
-* [Rdkit][rdkit]
-* [NCBI Blast][blast]
-* [Auto Dock Vina][vina]
-* [MGL Tools][mgltools]
-
+* [Pymol][pymol] 1.8.4
+* [Rdkit][rdkit] 2016.03.3
+* [NCBI Blast][blast] 2.3.0
+* [Auto Dock Vina][vina] 1.1.2
+* [Openeye][openeye] (latest)
+* [Chimera][chimera] (if it exists here /vagrant/chimera-1.10.2-linux_x86_64.bin)
 
 ### Applying this configuration manually
 
