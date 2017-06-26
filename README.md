@@ -1,19 +1,16 @@
 [pymol]: https://sourceforge.net/projects/pymol/
 [rdkit]: http://www.rdkit.org/
 [blast]: https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download
-[vina]: http://vina.scripps.edu/
-[mgltools]: http://mgltools.scripps.edu/downloads
+[openeye]: https://www.eyesopen.com/
 # puppet-D3R
 Contains puppet configuration to provision a machine that can run D3R software.
 
 ### Software installed
 
-* [Pymol][pymol]
-* [Rdkit][rdkit]
-* [NCBI Blast][blast]
-* [Auto Dock Vina][vina]
-* [MGL Tools][mgltools]
-
+* [Pymol][pymol] 1.8.4
+* [Rdkit][rdkit] 2016.03.3
+* [NCBI Blast][blast] 2.3.0
+* [Openeye][openeye] (latest)
 
 ### Applying this configuration manually
 

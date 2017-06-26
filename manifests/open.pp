@@ -9,7 +9,7 @@ class d3r::open
   Package { ensure => 'installed' }
   $python_deps    = [ 'python2-pip', 'python-psutil', 'python-virtualenv', 'python-tox', 'pylint', 'python-coverage' ]
   $perl_deps      = [ 'perl-Archive-Tar', 'perl-List-MoreUtils' ]
-  $other_packages = [ 'libXft', 'openbabel', 'xorg-x11-xauth' ]
+  $other_packages = [ 'libXft', 'openbabel', 'xorg-x11-xauth', 'screen', 'bzip2', 'which' ]
   $pymol_deps     = [ 'subversion', 'gcc', 'gcc-c++', 'kernel-devel', 'python-devel', 'tkinter', 'python-pmw', 'glew-devel', 'freeglut-devel', 'libpng-devel', 'freetype-devel', 'libxml2-devel']
   $mesa_packages  = [ 'mesa-libGL-devel','mesa-libEGL-devel','mesa-libGLES-devel' ]
   $pip_packages   = [ 'argparse','psutil','biopython','xlsxwriter','ftpretty','wheel','flake8','lockfile','easywebdav','d3r' ]
@@ -68,33 +68,6 @@ class d3r::open
   exec { 'install_blast':
     command => '/bin/yum install -y ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-1.x86_64.rpm',
     creates => '/usr/bin/blastp'
-  }
-
-  #autodock
-  exec { 'install_autodock':
-    command => '/bin/wget http://vina.scripps.edu/download/autodock_vina_1_1_2_linux_x86.tgz;
-                /bin/tar -zxf autodock_vina_1_1_2_linux_x86.tgz -C /opt;
-                /bin/ln -s /opt/autodock_vina_1_1_2_linux_x86/bin/vina /usr/local/bin/vina; 
-                /bin/ln -s /opt/autodock_vina_1_1_2_linux_x86/bin/vina_split /usr/local/bin/vina_split',
-    creates => '/opt/autodock_vina_1_1_2_linux_x86/bin/vina'
-  }
-
-  exec { 'install_mgltools':
-    command => '/bin/wget http://mgltools.scripps.edu/downloads/downloads/tars/releases/REL1.5.6/mgltools_x86_64Linux2_1.5.6.tar.gz;
-                /bin/tar -zxf mgltools_x86_64Linux2_1.5.6.tar.gz;
-                cd mgltools_x86_64Linux2_1.5.6; 
-                /bin/sh install.sh -d /usr/local/mgltools;
-                export MGL_ROOT=/usr/local/mgltools >> ~/.bash_profile',
-    creates => '/usr/local/mgltools'
-  }
-
-  #manual Install UCSF chimera if it resides in /vagrant directory
-  exec { 'install_chimera':
-    command => '/bin/chmod a+x /vagrant/chimera-1.10.2-linux_x86_64.bin;
-                /usr/bin/echo "/opt/chimera" | /vagrant/chimera-1.10.2-linux_x86_64.bin;
-                export PATH=/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
-    onlyif => '/usr/bin/test -f /vagrant/chimera-1.10.2-linux_x86_64.bin',
-    creates => '/opt/chimera/bin/chimera'
   }
 
   #manual INSTALL Schrodinger_Suites_2016-2_Linux-x86_64
