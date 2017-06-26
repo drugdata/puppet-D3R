@@ -70,23 +70,5 @@ class d3r::open
     creates => '/usr/bin/blastp'
   }
 
-  #autodock
-  exec { 'install_autodock':
-    command => '/bin/wget http://vina.scripps.edu/download/autodock_vina_1_1_2_linux_x86.tgz;
-                /bin/tar -zxf autodock_vina_1_1_2_linux_x86.tgz -C /opt;
-                /bin/ln -s /opt/autodock_vina_1_1_2_linux_x86/bin/vina /usr/local/bin/vina; 
-                /bin/ln -s /opt/autodock_vina_1_1_2_linux_x86/bin/vina_split /usr/local/bin/vina_split',
-    creates => '/opt/autodock_vina_1_1_2_linux_x86/bin/vina'
-  }
-
-  #manual Install UCSF chimera if it resides in /vagrant directory
-  exec { 'install_chimera':
-    command => '/bin/chmod a+x /vagrant/chimera-1.10.2-linux_x86_64.bin;
-                /usr/bin/echo "/opt/chimera" | /vagrant/chimera-1.10.2-linux_x86_64.bin;
-                export PATH="/opt/chimera/bin:$PATH" >> /home/vagrant/.bash_profile;',
-    onlyif => '/usr/bin/test -f /vagrant/chimera-1.10.2-linux_x86_64.bin',
-    creates => '/opt/chimera/bin/chimera'
-  }
-
   #manual INSTALL Schrodinger_Suites_2016-2_Linux-x86_64
 }
