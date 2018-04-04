@@ -10,7 +10,7 @@ Contains puppet configuration to provision a machine that can run D3R software.
 * [Pymol][pymol] 1.8.4
 * [Rdkit][rdkit] 2016.03.3
 * [NCBI Blast][blast] 2.3.0
-* [Openeye][openeye] (latest)
+* [Openeye][openeye] (2017.6.1)
 
 ### Applying this configuration manually
 
