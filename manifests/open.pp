@@ -56,7 +56,7 @@ class d3r::open
     ensure   => 'installed',
     provider => 'pip',
     require  => Package['python2-pip'],
-  } ->
+  }
 
   # Openeye install that will work in puppet in versions older then 4.1
   exec { 'install_openeye':
