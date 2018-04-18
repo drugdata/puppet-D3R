@@ -76,14 +76,14 @@ class d3r::open
 
   #manual INSTALL Schrodinger_Suites_2016-2_Linux-x86_64
   exec { 'install_schrodinger':
-    command => '/bin/cd /tmp;
+    command => 'cd /tmp;
                 /bin/tar -xf Schrodinger*.tar;
                 /bin/rm Schrodinger*.tar;
-                /bin/cd Schrodinger*;
+                cd Schrodinger*;
                 ./INSTALL -d `pwd` /opt/schrodinger -b -s /opt/schrodinger -k /tmp -t `pwd`/thirdparty mmshare*.gz glide*.gz maestro*gz;
-                /bin/cd /tmp;
+                cd /tmp;
                 /bin/rm -rf Schrodinger*',
-    onlyif => '/bin/test -e /tmp/Schrodinger*.tar',
+    onlyif => '/bin/test -e /tmp/Schr*.tar',
     creates => '/opt/schrodinger'
   } 
 }
