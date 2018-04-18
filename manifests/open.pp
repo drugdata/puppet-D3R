@@ -83,7 +83,7 @@ class d3r::open
                 ./INSTALL -d `pwd` /opt/schrodinger -b -s /opt/schrodinger -k /tmp -t `pwd`/thirdparty mmshare*.gz glide*.gz maestro*gz;
                 cd /tmp;
                 /bin/rm -rf Schrodinger*',
-    onlyif => 'test -e /tmp/Schrodinger_Suites*.tar',
+    onlyif => 'test -e /tmp/Schrodinger_Suites_2016-2_Linux-x86_64.tar',
     creates => '/opt/schrodinger'
   } 
 }
