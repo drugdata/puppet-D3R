@@ -24,7 +24,10 @@ class d3r::open
                 /bin/tar -xjvf  pymol-v1.8.4.0.tar.bz2;
                 cd pymol;
                 python2.7 setup.py build install --home=/opt/pymol --install-scripts=/opt/pymol --install-lib=/opt/pymol/modules;
-                /bin/ln -s /opt/pymol/pymol /usr/bin/pymol',
+                /bin/ln -s /opt/pymol/pymol /usr/bin/pymol;
+                cd /tmp;
+                /bin/rm pymol-v1.8.4.0.tar.bz2;
+                /bin/rm -rf pymol',
     creates => '/opt/pymol/pymol'
   }
 
@@ -44,7 +47,8 @@ class d3r::open
                 /bin/sh Miniconda2-latest-Linux-x86_64.sh -b -p /opt/miniconda2;
                 export PATH="/opt/miniconda2/bin:$PATH";
                 conda update --yes conda;
-                conda install -y -c rdkit rdkit=2016.03.3',
+                conda install -y -c rdkit rdkit=2016.03.3;
+                /bin/rm Miniconda2-latest-Linux-x86_64.sh',
     creates => '/opt/miniconda2'
   }
 
@@ -71,4 +75,5 @@ class d3r::open
   }
 
   #manual INSTALL Schrodinger_Suites_2016-2_Linux-x86_64
+  
 }
