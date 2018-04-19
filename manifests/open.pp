@@ -76,6 +76,7 @@ class d3r::open
 
   #manual INSTALL Schrodinger_Suites_2016-2_Linux-x86_64
   exec { 'install_schrodinger':
+    path => [ '/usr/bin', '/usr/sbin', '/bin', '/usr/local/bin'],
     command => 'cd /tmp;
                 /bin/tar -xf Schrodinger*.tar;
                 /bin/rm Schrodinger*.tar;
