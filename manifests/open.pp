@@ -64,7 +64,7 @@ class d3r::open
 
   # Openeye install that will work in puppet in versions older then 4.1
   exec { 'install_openeye':
-    command => '/usr/bin/pip install -i https://pypi.anaconda.org/OpenEye/simple OpenEye-toolkits==2018.2.1',
+    command => '/usr/bin/pip install -i https://pypi.anaconda.org/openeye/label/tk_archive/simple openeye-toolkits-python2.7-ucs4-linux-x64',
     creates => '/usr/bin/openeye_tests.py'
   }
 
